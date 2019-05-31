@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E2E866222A107E800B558F1 /* AKSNetWorkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E866122A107E800B558F1 /* AKSNetWorkConfig.m */; };
+		9E2E866522A1151C00B558F1 /* AKSNetWorkRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E866422A1151C00B558F1 /* AKSNetWorkRequestConfig.m */; };
+		9E2E866B22A1182000B558F1 /* UINavigationController+AKSNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E866A22A1182000B558F1 /* UINavigationController+AKSNetWork.m */; };
+		9E2E866E22A1191100B558F1 /* UIViewController+AKSNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E866D22A1191100B558F1 /* UIViewController+AKSNetWork.m */; };
+		9E2E867322A11C6200B558F1 /* AKSNetWorkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E867222A11C6200B558F1 /* AKSNetWorkHelper.m */; };
+		9E2E867722A11DE700B558F1 /* AKSMemCacheDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E867622A11DE700B558F1 /* AKSMemCacheDataCenter.m */; };
+		9E2E867A22A1275200B558F1 /* AKSURLRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E867922A1275200B558F1 /* AKSURLRequestManager.m */; };
+		9E2E867D22A127FB00B558F1 /* AKSHTTPSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E867C22A127FB00B558F1 /* AKSHTTPSessionModel.m */; };
+		9E2E868022A12D9900B558F1 /* AKSApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E867F22A12D9900B558F1 /* AKSApiProxy.m */; };
+		9E2E868322A1358200B558F1 /* AKSApiRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E868222A1358200B558F1 /* AKSApiRequestManager.m */; };
+		9E2E868722A137FE00B558F1 /* NEHTTPModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E868622A137FE00B558F1 /* NEHTTPModelManager.m */; };
+		9E2E868A22A13B6600B558F1 /* AKSNetWorkLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E868922A13B6600B558F1 /* AKSNetWorkLogHelper.m */; };
 		9EECCBCA227FD84D003D6B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBC9227FD84D003D6B08 /* AppDelegate.m */; };
 		9EECCBCD227FD84D003D6B08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBCC227FD84D003D6B08 /* ViewController.m */; };
 		9EECCBD0227FD84D003D6B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EECCBCE227FD84D003D6B08 /* Main.storyboard */; };
@@ -14,29 +26,40 @@
 		9EECCBD5227FD84F003D6B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EECCBD3227FD84F003D6B08 /* LaunchScreen.storyboard */; };
 		9EECCBD8227FD84F003D6B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBD7227FD84F003D6B08 /* main.m */; };
 		9EECCBE2227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBE1227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.m */; };
-		9EECCBE5227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBE4227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.m */; };
-		9EECCBE8227FE751003D6B08 /* NSString+AKSNetWorkMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBE7227FE751003D6B08 /* NSString+AKSNetWorkMethods.m */; };
-		9EECCBEE228011EE003D6B08 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBED228011EE003D6B08 /* GTMBase64.m */; };
-		9EECCC162280164A003D6B08 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9EECCBF02280164A003D6B08 /* LICENSE */; };
-		9EECCC172280164A003D6B08 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9EECCBF12280164A003D6B08 /* README.md */; };
-		9EECCC182280164A003D6B08 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBF32280164A003D6B08 /* UIProgressView+AFNetworking.m */; };
-		9EECCC192280164A003D6B08 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBF52280164A003D6B08 /* UIRefreshControl+AFNetworking.m */; };
-		9EECCC1A2280164A003D6B08 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBF82280164A003D6B08 /* AFNetworkActivityIndicatorManager.m */; };
-		9EECCC1B2280164A003D6B08 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBFE2280164A003D6B08 /* UIImageView+AFNetworking.m */; };
-		9EECCC1C2280164A003D6B08 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC012280164A003D6B08 /* UIButton+AFNetworking.m */; };
-		9EECCC1D2280164A003D6B08 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC022280164A003D6B08 /* UIActivityIndicatorView+AFNetworking.m */; };
-		9EECCC1E2280164A003D6B08 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC032280164A003D6B08 /* UIWebView+AFNetworking.m */; };
-		9EECCC1F2280164A003D6B08 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC042280164A003D6B08 /* AFAutoPurgingImageCache.m */; };
-		9EECCC202280164A003D6B08 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC062280164A003D6B08 /* AFImageDownloader.m */; };
-		9EECCC212280164A003D6B08 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC0C2280164A003D6B08 /* AFURLResponseSerialization.m */; };
-		9EECCC222280164A003D6B08 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC0D2280164A003D6B08 /* AFHTTPSessionManager.m */; };
-		9EECCC232280164A003D6B08 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC0F2280164A003D6B08 /* AFURLSessionManager.m */; };
-		9EECCC242280164A003D6B08 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC102280164A003D6B08 /* AFURLRequestSerialization.m */; };
-		9EECCC252280164A003D6B08 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC122280164A003D6B08 /* AFNetworkReachabilityManager.m */; };
-		9EECCC262280164A003D6B08 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCC132280164A003D6B08 /* AFSecurityPolicy.m */; };
+		9EECCBE5227FE4A6003D6B08 /* NSDictionary+AKSNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBE4227FE4A6003D6B08 /* NSDictionary+AKSNetWork.m */; };
+		9EECCBE8227FE751003D6B08 /* NSString+AKSNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBE7227FE751003D6B08 /* NSString+AKSNetWork.m */; };
+		9EECCBEE228011EE003D6B08 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBED228011EE003D6B08 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C9C16AFFF3D41037444DB11F /* libPods-AKSNetWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF99F774E638BF2127C195A /* libPods-AKSNetWork.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11823F20C798EFBC1F166529 /* Pods-AKSNetWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSNetWork.debug.xcconfig"; path = "Target Support Files/Pods-AKSNetWork/Pods-AKSNetWork.debug.xcconfig"; sourceTree = "<group>"; };
+		4DF99F774E638BF2127C195A /* libPods-AKSNetWork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AKSNetWork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2E866022A107E800B558F1 /* AKSNetWorkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSNetWorkConfig.h; sourceTree = "<group>"; };
+		9E2E866122A107E800B558F1 /* AKSNetWorkConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSNetWorkConfig.m; sourceTree = "<group>"; };
+		9E2E866322A1151C00B558F1 /* AKSNetWorkRequestConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSNetWorkRequestConfig.h; sourceTree = "<group>"; };
+		9E2E866422A1151C00B558F1 /* AKSNetWorkRequestConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSNetWorkRequestConfig.m; sourceTree = "<group>"; };
+		9E2E866922A1182000B558F1 /* UINavigationController+AKSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AKSNetWork.h"; sourceTree = "<group>"; };
+		9E2E866A22A1182000B558F1 /* UINavigationController+AKSNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AKSNetWork.m"; sourceTree = "<group>"; };
+		9E2E866C22A1191100B558F1 /* UIViewController+AKSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AKSNetWork.h"; sourceTree = "<group>"; };
+		9E2E866D22A1191100B558F1 /* UIViewController+AKSNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AKSNetWork.m"; sourceTree = "<group>"; };
+		9E2E866F22A11A0C00B558F1 /* AKSNetWorkingDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSNetWorkingDefines.h; sourceTree = "<group>"; };
+		9E2E867122A11C6200B558F1 /* AKSNetWorkHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSNetWorkHelper.h; sourceTree = "<group>"; };
+		9E2E867222A11C6200B558F1 /* AKSNetWorkHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSNetWorkHelper.m; sourceTree = "<group>"; };
+		9E2E867522A11DE700B558F1 /* AKSMemCacheDataCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSMemCacheDataCenter.h; sourceTree = "<group>"; };
+		9E2E867622A11DE700B558F1 /* AKSMemCacheDataCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSMemCacheDataCenter.m; sourceTree = "<group>"; };
+		9E2E867822A1275200B558F1 /* AKSURLRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSURLRequestManager.h; sourceTree = "<group>"; };
+		9E2E867922A1275200B558F1 /* AKSURLRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSURLRequestManager.m; sourceTree = "<group>"; };
+		9E2E867B22A127FB00B558F1 /* AKSHTTPSessionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSHTTPSessionModel.h; sourceTree = "<group>"; };
+		9E2E867C22A127FB00B558F1 /* AKSHTTPSessionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSHTTPSessionModel.m; sourceTree = "<group>"; };
+		9E2E867E22A12D9900B558F1 /* AKSApiProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSApiProxy.h; sourceTree = "<group>"; };
+		9E2E867F22A12D9900B558F1 /* AKSApiProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSApiProxy.m; sourceTree = "<group>"; };
+		9E2E868122A1358200B558F1 /* AKSApiRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSApiRequestManager.h; sourceTree = "<group>"; };
+		9E2E868222A1358200B558F1 /* AKSApiRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSApiRequestManager.m; sourceTree = "<group>"; };
+		9E2E868522A137FE00B558F1 /* NEHTTPModelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEHTTPModelManager.h; sourceTree = "<group>"; };
+		9E2E868622A137FE00B558F1 /* NEHTTPModelManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEHTTPModelManager.m; sourceTree = "<group>"; };
+		9E2E868822A13B6600B558F1 /* AKSNetWorkLogHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSNetWorkLogHelper.h; sourceTree = "<group>"; };
+		9E2E868922A13B6600B558F1 /* AKSNetWorkLogHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSNetWorkLogHelper.m; sourceTree = "<group>"; };
 		9EECCBC5227FD84D003D6B08 /* AKSNetWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSNetWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EECCBC8227FD84D003D6B08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9EECCBC9227FD84D003D6B08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,10 +72,10 @@
 		9EECCBD7227FD84F003D6B08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9EECCBE0227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+AKSNetWorkMethods.h"; sourceTree = "<group>"; };
 		9EECCBE1227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AKSNetWorkMethods.m"; sourceTree = "<group>"; };
-		9EECCBE3227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AKSNetWorkMethods.h"; sourceTree = "<group>"; };
-		9EECCBE4227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AKSNetWorkMethods.m"; sourceTree = "<group>"; };
-		9EECCBE6227FE751003D6B08 /* NSString+AKSNetWorkMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AKSNetWorkMethods.h"; sourceTree = "<group>"; };
-		9EECCBE7227FE751003D6B08 /* NSString+AKSNetWorkMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKSNetWorkMethods.m"; sourceTree = "<group>"; };
+		9EECCBE3227FE4A6003D6B08 /* NSDictionary+AKSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AKSNetWork.h"; sourceTree = "<group>"; };
+		9EECCBE4227FE4A6003D6B08 /* NSDictionary+AKSNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AKSNetWork.m"; sourceTree = "<group>"; };
+		9EECCBE6227FE751003D6B08 /* NSString+AKSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AKSNetWork.h"; sourceTree = "<group>"; };
+		9EECCBE7227FE751003D6B08 /* NSString+AKSNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKSNetWork.m"; sourceTree = "<group>"; };
 		9EECCBEB228011EE003D6B08 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		9EECCBEC228011EE003D6B08 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		9EECCBED228011EE003D6B08 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
@@ -92,6 +115,7 @@
 		9EECCC132280164A003D6B08 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 		9EECCC142280164A003D6B08 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
 		9EECCC152280164A003D6B08 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		F1587822441FFA85D59EE177 /* Pods-AKSNetWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSNetWork.release.xcconfig"; path = "Target Support Files/Pods-AKSNetWork/Pods-AKSNetWork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,17 +123,78 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C16AFFF3D41037444DB11F /* libPods-AKSNetWork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B92D597E459495E3E57D8C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DF99F774E638BF2127C195A /* libPods-AKSNetWork.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0C90E60E51797603D9ECC091 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11823F20C798EFBC1F166529 /* Pods-AKSNetWork.debug.xcconfig */,
+				F1587822441FFA85D59EE177 /* Pods-AKSNetWork.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E2E865F22A107AC00B558F1 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				9E2E867E22A12D9900B558F1 /* AKSApiProxy.h */,
+				9E2E867F22A12D9900B558F1 /* AKSApiProxy.m */,
+				9E2E868122A1358200B558F1 /* AKSApiRequestManager.h */,
+				9E2E868222A1358200B558F1 /* AKSApiRequestManager.m */,
+				9E2E867B22A127FB00B558F1 /* AKSHTTPSessionModel.h */,
+				9E2E867C22A127FB00B558F1 /* AKSHTTPSessionModel.m */,
+				9E2E866022A107E800B558F1 /* AKSNetWorkConfig.h */,
+				9E2E866122A107E800B558F1 /* AKSNetWorkConfig.m */,
+				9E2E867122A11C6200B558F1 /* AKSNetWorkHelper.h */,
+				9E2E867222A11C6200B558F1 /* AKSNetWorkHelper.m */,
+				9E2E866322A1151C00B558F1 /* AKSNetWorkRequestConfig.h */,
+				9E2E866422A1151C00B558F1 /* AKSNetWorkRequestConfig.m */,
+				9E2E867822A1275200B558F1 /* AKSURLRequestManager.h */,
+				9E2E867922A1275200B558F1 /* AKSURLRequestManager.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9E2E867422A11DC300B558F1 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				9E2E867522A11DE700B558F1 /* AKSMemCacheDataCenter.h */,
+				9E2E867622A11DE700B558F1 /* AKSMemCacheDataCenter.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		9E2E868422A137D900B558F1 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				9E2E868522A137FE00B558F1 /* NEHTTPModelManager.h */,
+				9E2E868622A137FE00B558F1 /* NEHTTPModelManager.m */,
+				9E2E868822A13B6600B558F1 /* AKSNetWorkLogHelper.h */,
+				9E2E868922A13B6600B558F1 /* AKSNetWorkLogHelper.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		9EECCBBC227FD84D003D6B08 = {
 			isa = PBXGroup;
 			children = (
 				9EECCBC7227FD84D003D6B08 /* AKSNetWork */,
 				9EECCBC6227FD84D003D6B08 /* Products */,
+				0C90E60E51797603D9ECC091 /* Pods */,
+				0B92D597E459495E3E57D8C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,8 +227,12 @@
 		9EECCBDE227FE1C9003D6B08 /* AKSNetWork */ = {
 			isa = PBXGroup;
 			children = (
+				9E2E868422A137D900B558F1 /* Log */,
+				9E2E867422A11DC300B558F1 /* Cache */,
+				9E2E865F22A107AC00B558F1 /* Request */,
 				9EECCBEA228011EE003D6B08 /* GTMBase64 */,
 				9EECCBDF227FE241003D6B08 /* Categories */,
+				9E2E866F22A11A0C00B558F1 /* AKSNetWorkingDefines.h */,
 			);
 			path = AKSNetWork;
 			sourceTree = "<group>";
@@ -153,10 +242,14 @@
 			children = (
 				9EECCBE0227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.h */,
 				9EECCBE1227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.m */,
-				9EECCBE3227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.h */,
-				9EECCBE4227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.m */,
-				9EECCBE6227FE751003D6B08 /* NSString+AKSNetWorkMethods.h */,
-				9EECCBE7227FE751003D6B08 /* NSString+AKSNetWorkMethods.m */,
+				9EECCBE3227FE4A6003D6B08 /* NSDictionary+AKSNetWork.h */,
+				9EECCBE4227FE4A6003D6B08 /* NSDictionary+AKSNetWork.m */,
+				9EECCBE6227FE751003D6B08 /* NSString+AKSNetWork.h */,
+				9EECCBE7227FE751003D6B08 /* NSString+AKSNetWork.m */,
+				9E2E866922A1182000B558F1 /* UINavigationController+AKSNetWork.h */,
+				9E2E866A22A1182000B558F1 /* UINavigationController+AKSNetWork.m */,
+				9E2E866C22A1191100B558F1 /* UIViewController+AKSNetWork.h */,
+				9E2E866D22A1191100B558F1 /* UIViewController+AKSNetWork.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -237,6 +330,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EECCBDB227FD84F003D6B08 /* Build configuration list for PBXNativeTarget "AKSNetWork" */;
 			buildPhases = (
+				481434ABAD7198AEBB207E7C /* [CP] Check Pods Manifest.lock */,
 				9EECCBC1227FD84D003D6B08 /* Sources */,
 				9EECCBC2227FD84D003D6B08 /* Frameworks */,
 				9EECCBC3227FD84D003D6B08 /* Resources */,
@@ -289,41 +383,61 @@
 			files = (
 				9EECCBD5227FD84F003D6B08 /* LaunchScreen.storyboard in Resources */,
 				9EECCBD2227FD84F003D6B08 /* Assets.xcassets in Resources */,
-				9EECCC172280164A003D6B08 /* README.md in Resources */,
-				9EECCC162280164A003D6B08 /* LICENSE in Resources */,
 				9EECCBD0227FD84D003D6B08 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		481434ABAD7198AEBB207E7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AKSNetWork-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9EECCBC1227FD84D003D6B08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EECCC1F2280164A003D6B08 /* AFAutoPurgingImageCache.m in Sources */,
-				9EECCC182280164A003D6B08 /* UIProgressView+AFNetworking.m in Sources */,
+				9E2E867322A11C6200B558F1 /* AKSNetWorkHelper.m in Sources */,
 				9EECCBCD227FD84D003D6B08 /* ViewController.m in Sources */,
-				9EECCC222280164A003D6B08 /* AFHTTPSessionManager.m in Sources */,
-				9EECCC1C2280164A003D6B08 /* UIButton+AFNetworking.m in Sources */,
-				9EECCBE8227FE751003D6B08 /* NSString+AKSNetWorkMethods.m in Sources */,
+				9E2E866522A1151C00B558F1 /* AKSNetWorkRequestConfig.m in Sources */,
+				9EECCBE8227FE751003D6B08 /* NSString+AKSNetWork.m in Sources */,
+				9E2E868022A12D9900B558F1 /* AKSApiProxy.m in Sources */,
+				9E2E866E22A1191100B558F1 /* UIViewController+AKSNetWork.m in Sources */,
 				9EECCBD8227FD84F003D6B08 /* main.m in Sources */,
-				9EECCC242280164A003D6B08 /* AFURLRequestSerialization.m in Sources */,
-				9EECCC1A2280164A003D6B08 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				9EECCC202280164A003D6B08 /* AFImageDownloader.m in Sources */,
-				9EECCC252280164A003D6B08 /* AFNetworkReachabilityManager.m in Sources */,
+				9E2E867A22A1275200B558F1 /* AKSURLRequestManager.m in Sources */,
+				9E2E868322A1358200B558F1 /* AKSApiRequestManager.m in Sources */,
+				9E2E866222A107E800B558F1 /* AKSNetWorkConfig.m in Sources */,
+				9E2E867D22A127FB00B558F1 /* AKSHTTPSessionModel.m in Sources */,
 				9EECCBE2227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.m in Sources */,
-				9EECCC232280164A003D6B08 /* AFURLSessionManager.m in Sources */,
-				9EECCC192280164A003D6B08 /* UIRefreshControl+AFNetworking.m in Sources */,
-				9EECCBE5227FE4A6003D6B08 /* NSDictionary+AKSNetWorkMethods.m in Sources */,
+				9E2E866B22A1182000B558F1 /* UINavigationController+AKSNetWork.m in Sources */,
+				9E2E867722A11DE700B558F1 /* AKSMemCacheDataCenter.m in Sources */,
+				9EECCBE5227FE4A6003D6B08 /* NSDictionary+AKSNetWork.m in Sources */,
+				9E2E868722A137FE00B558F1 /* NEHTTPModelManager.m in Sources */,
 				9EECCBCA227FD84D003D6B08 /* AppDelegate.m in Sources */,
-				9EECCC212280164A003D6B08 /* AFURLResponseSerialization.m in Sources */,
-				9EECCC1E2280164A003D6B08 /* UIWebView+AFNetworking.m in Sources */,
-				9EECCC1B2280164A003D6B08 /* UIImageView+AFNetworking.m in Sources */,
 				9EECCBEE228011EE003D6B08 /* GTMBase64.m in Sources */,
-				9EECCC262280164A003D6B08 /* AFSecurityPolicy.m in Sources */,
-				9EECCC1D2280164A003D6B08 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				9E2E868A22A13B6600B558F1 /* AKSNetWorkLogHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +577,7 @@
 		};
 		9EECCBDC227FD84F003D6B08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11823F20C798EFBC1F166529 /* Pods-AKSNetWork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -481,6 +596,7 @@
 		};
 		9EECCBDD227FD84F003D6B08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1587822441FFA85D59EE177 /* Pods-AKSNetWork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
