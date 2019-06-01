@@ -78,7 +78,6 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        
         _responseMemoryCache = [[YYCache alloc] initWithName:NSStringFromClass([self class])];
         _responseMemoryCache.memoryCache.countLimit = [AKSNetWorkConfig netWorkConfig].countLimit;
         _responseMemoryCache.diskCache.countLimit = [AKSNetWorkConfig netWorkConfig].countLimit;;

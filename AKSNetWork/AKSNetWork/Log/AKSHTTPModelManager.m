@@ -1,12 +1,12 @@
 //
-//  NEHTTPModelManager.m
+//  AKSHTTPModelManager.m
 //  AKSNetWork
 //
 //  Created by simonssd on 2019/5/31.
 //  Copyright © 2019 Acadsoc. All rights reserved.
 //
 
-#import "NEHTTPModelManager.h"
+#import "AKSHTTPModelManager.h"
 #import "AKSHTTPSessionModel.h"
 #import "AKSNetWorkConfig.h"
 
@@ -20,7 +20,7 @@
 #define kSTRShortMarks  @"'"
 #define kSQLShortMarks  @"''"
 
-@interface NEHTTPModelManager () {
+@interface AKSHTTPModelManager () {
     NSMutableArray *allMapRequests;
 #if FMDB_SQLCipher
     FMDatabaseQueue *sqliteDatabase;
@@ -29,7 +29,7 @@
 }
 @end
 
-@implementation NEHTTPModelManager
+@implementation AKSHTTPModelManager
 
 - (id)init {
     self = [super init];
@@ -49,10 +49,10 @@
 
 + (instancetype)defaultManager {
     
-    static NEHTTPModelManager *staticManager = nil;
+    static AKSHTTPModelManager *staticManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        staticManager = [[NEHTTPModelManager alloc] init];
+        staticManager = [[AKSHTTPModelManager alloc] init];
         [staticManager createTable];
     });
     return staticManager;
@@ -74,7 +74,7 @@
     [init_sqls appendFormat:@"create table if not exists nenetworkhttpeyes(myID double primary key,startDateString text,endDateString text,requestURLString text,requestCachePolicy text,requestTimeoutInterval double,requestHTTPMethod text,requestAllHTTPHeaderFields text,requestHTTPBody text,responseMIMEType text,responseExpectedContentLength text,responseTextEncodingName text,responseSuggestedFilename text,responseStatusCode int,responseAllHeaderFields text,receiveJSONData text);"];
 #if FMDB_SQLCipher
     
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[AKSHTTPModelManager filename]];
     [queue inDatabase:^(FMDatabase *db) {
         [db setKey:_sqlitePassword];
         [db executeUpdate:init_sqls];
@@ -105,7 +105,7 @@
         
         NSString *sql = [NSString stringWithFormat:@"insert into nenetworkhttpeyes values('%lf','%@','%@','%@','%@','%lf','%@','%@','%@','%@','%@','%@','%@','%d','%@','%@')",aModel.ID,aModel.startDateString,aModel.endDateString,aModel.requestURLString,aModel.requestCachePolicy,aModel.requestTimeoutInterval,aModel.requestHTTPMethod,aModel.requestAllHTTPHeaderFields,aModel.requestHTTPBody,aModel.responseMIMEType,aModel.responseExpectedContentLength,aModel.responseTextEncodingName,aModel.responseSuggestedFilename,aModel.responseStatusCode,[self stringToSQLFilter:aModel.responseAllHeaderFields],receiveJSONData];
         
-        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[AKSHTTPModelManager filename]];
         [queue inDatabase:^(FMDatabase *db) {
             [db setKey:_sqlitePassword];
             [db executeUpdate:sql];
@@ -129,8 +129,8 @@
     }
 #if FMDB_SQLCipher
     
-    FMDatabaseQueue *queue =  [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
-    NSString *sql  = [NSString stringWithFormat:@"select * from nenetworkhttpeyes order by myID desc"];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[AKSHTTPModelManager filename]];
+    NSString *sql = [NSString stringWithFormat:@"select * from nenetworkhttpeyes order by myID desc"];
     NSMutableArray *array = [NSMutableArray array];
     [queue inDatabase:^(FMDatabase *db) {
         [db setKey:_sqlitePassword];
@@ -176,7 +176,7 @@
     
     NSString *sql = [NSString stringWithFormat:@"delete from nenetworkhttpeyes"];
     
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[NEHTTPModelManager filename]];
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[AKSHTTPModelManager filename]];
     [queue inDatabase:^(FMDatabase *db) {
         [db setKey:_sqlitePassword];
         [db executeUpdate:sql];
@@ -186,63 +186,27 @@
 #endif
 }
 
-#pragma mark - map local
-
-- (NSMutableArray *)allMapObjects {
-    return allMapRequests;
-}
-
-- (void)addMapObject:(AKSHTTPSessionModel *)mapReq {
-    
-    for (NSInteger i = 0; i < allMapRequests.count; i++) {
-        AKSHTTPSessionModel *req = [allMapRequests objectAtIndex:i];
-        if (![mapReq.mapPath isEqualToString:req.mapPath]) {
-            [allMapRequests replaceObjectAtIndex:i withObject:mapReq];
-            return;
-        }
-    }
-    [allMapRequests addObject:mapReq];
-}
-
-- (void)removeMapObject:(AKSHTTPSessionModel *)mapReq {
-    
-    for (NSInteger i = 0; i < allMapRequests.count; i++) {
-        AKSHTTPSessionModel *req = [allMapRequests objectAtIndex:i];
-        if ([mapReq.mapPath isEqualToString:req.mapPath]) {
-            [allMapRequests removeObject:mapReq];
-            return;
-        }
-    }
-}
-
-- (void)removeAllMapObjects {
-    
-    [allMapRequests removeAllObjects];
-}
-
 #pragma mark - Utils
 
 - (id)stringToSQLFilter:(id)str {
     
-    if ( [str respondsToSelector:@selector(stringByReplacingOccurrencesOfString:withString:)]) {
+    if ([str respondsToSelector:@selector(stringByReplacingOccurrencesOfString:withString:)]) {
         id temp = str;
         temp = [temp stringByReplacingOccurrencesOfString:kSTRShortMarks withString:kSQLShortMarks];
         temp = [temp stringByReplacingOccurrencesOfString:kSTRDoubleMarks withString:kSQLDoubleMarks];
         return temp;
     }
-    
     return str;
 }
 
 - (id)stringToOBJFilter:(id)str {
     
-    if ( [str respondsToSelector:@selector(stringByReplacingOccurrencesOfString:withString:)]) {
+    if ([str respondsToSelector:@selector(stringByReplacingOccurrencesOfString:withString:)]) {
         id temp = str;
         temp = [temp stringByReplacingOccurrencesOfString:kSQLShortMarks withString:kSTRShortMarks];
         temp = [temp stringByReplacingOccurrencesOfString:kSQLDoubleMarks withString:kSTRDoubleMarks];
         return temp;
     }
-    
     return str;
 }
 

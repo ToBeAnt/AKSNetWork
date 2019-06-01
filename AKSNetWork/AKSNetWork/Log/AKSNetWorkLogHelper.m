@@ -26,6 +26,7 @@
 }
 
 - (NSString *)printRequestLog {
+    
     NSMutableString *logString = [[NSMutableString alloc] init];
     
     NSString *requestStart = [NSString stringWithFormat:@"\n---------------------Request Start----------------------\n"];
@@ -45,6 +46,7 @@
     NSString *responseAllHeaderFields = [NSString stringWithFormat:@"[responseAllHeaderFields] : %@\n",self.model.responseAllHeaderFields];
     NSString *errorDescription = nil;
     NSString *receiveJSONData = nil;
+    
     if (!self.model.errorDescription) {
         errorDescription = [NSString stringWithFormat:@"[responseJSON] : %@",self.model.errorDescription];
     } else {
@@ -67,6 +69,7 @@
     [logString appendString:responseSuggestedFilename];
     [logString appendString:responseStatusCode];
     [logString appendString:responseAllHeaderFields];
+    
     if (!errorDescription) {
         [logString appendString:receiveJSONData];
     } else {

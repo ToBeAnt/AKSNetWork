@@ -9,8 +9,8 @@
 #import "AKSHTTPSessionModel.h"
 #import "AKSNetWorkHelper.h"
 #import "AKSNetWorkConfig.h"
-#import "NEHTTPModelManager.h"
-#import "AKSNetWorkLogHelper.h"AKSNetWorkLogHelper
+#import "AKSHTTPModelManager.h"
+#import "AKSNetWorkLogHelper.h"
 
 void AKSLog(NSString *format, ...) {
 #ifdef DEBUG
@@ -47,7 +47,7 @@ void AKSLog(NSString *format, ...) {
             self.requestCachePolicy = @"NSURLRequestReturnCacheDataDontLoad";
             break;
         case 4:
-            self.requestCachePolicy = @"NSURLRequestUseProtocolCachePolicy";
+            self.requestCachePolicy = @"NSURLRequestReloadIgnoringLocalAndRemoteCacheData";
             break;
         case 5:
             self.requestCachePolicy = @"NSURLRequestReloadRevalidatingCacheData";
@@ -57,11 +57,11 @@ void AKSLog(NSString *format, ...) {
             break;
     }
     
-    self.requestTimeoutInterval=[[NSString stringWithFormat:@"%.1lf",ne_request.timeoutInterval] doubleValue];
+    self.requestTimeoutInterval = [[NSString stringWithFormat:@"%.1lf",ne_request.timeoutInterval] doubleValue];
     self.requestHTTPMethod=ne_request.HTTPMethod;
     
     for (NSString *key in [ne_request.allHTTPHeaderFields allKeys]) {
-        self.requestAllHTTPHeaderFields=[NSString stringWithFormat:@"%@%@",self.requestAllHTTPHeaderFields,[self formateRequestHeaderFieldKey:key object:[ne_request.allHTTPHeaderFields objectForKey:key]]];
+        self.requestAllHTTPHeaderFields = [NSString stringWithFormat:@"%@%@",self.requestAllHTTPHeaderFields,[self formateRequestHeaderFieldKey:key object:[ne_request.allHTTPHeaderFields objectForKey:key]]];
     }
     
     [self appendCookieStringAfterRequestAllHTTPHeaderFields];
@@ -92,7 +92,7 @@ void AKSLog(NSString *format, ...) {
 
 - (void)setNe_response:(NSHTTPURLResponse *)ne_response_new {
     
-    ne_response=ne_response_new;
+    ne_response = ne_response_new;
     
     self.responseMIMEType = @"";
     self.responseExpectedContentLength = @"";
@@ -108,19 +108,19 @@ void AKSLog(NSString *format, ...) {
     self.responseStatusCode = (int)ne_response.statusCode;
     
     for (NSString *key in [ne_response.allHeaderFields allKeys]) {
-        NSString *headerFieldValue=[ne_response.allHeaderFields objectForKey:key];
+        NSString *headerFieldValue = [ne_response.allHeaderFields objectForKey:key];
         if ([key isEqualToString:@"Content-Security-Policy"]) {
             if (headerFieldValue.length > 12 && [[headerFieldValue substringFromIndex:12] isEqualToString:@"'none'"]) {
-                headerFieldValue=[headerFieldValue substringToIndex:11];
+                headerFieldValue = [headerFieldValue substringToIndex:11];
             }
         }
         
-        self.responseAllHeaderFields=[NSString stringWithFormat:@"%@%@:%@\n",self.responseAllHeaderFields,key,headerFieldValue];
+        self.responseAllHeaderFields = [NSString stringWithFormat:@"%@%@:%@\n",self.responseAllHeaderFields,key,headerFieldValue];
     }
     
     if (self.responseAllHeaderFields.length > 1) {
         if ([[self.responseAllHeaderFields substringFromIndex:self.responseAllHeaderFields.length-1] isEqualToString:@"\n"]) {
-            self.responseAllHeaderFields=[self.responseAllHeaderFields substringToIndex:self.responseAllHeaderFields.length-1];
+            self.responseAllHeaderFields = [self.responseAllHeaderFields substringToIndex:self.responseAllHeaderFields.length-1];
         }
     }
 }
@@ -201,7 +201,7 @@ void AKSLog(NSString *format, ...) {
 #if DEBUG
     
     if ([AKSNetWorkConfig netWorkConfig].SQLLogEnable) {
-        [[NEHTTPModelManager defaultManager] addModel:self];
+        [[AKSHTTPModelManager defaultManager] addModel:self];
     } else {
         AKSLog(@"未开启SQLLogEnable日志");
     }

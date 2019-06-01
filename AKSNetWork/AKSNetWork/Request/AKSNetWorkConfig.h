@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class AFJSONResponseSerializer;
 @class AFHTTPSessionManager;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -47,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 请求头 */
 @property (readwrite, nonatomic, strong) NSMutableDictionary *mutableHTTPRequestHeaders;
 
-@property (readwrite, nonatomic, strong) AFJSONResponseSerializer *responseSerializer;
 @property (readwrite, nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @property (readwrite, nonatomic, strong) NSURLSessionConfiguration *sessionConfiguration;
 

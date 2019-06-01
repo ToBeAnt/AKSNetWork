@@ -1,5 +1,5 @@
 //
-//  NEHTTPModelManager.h
+//  AKSHTTPModelManager.h
 //  AKSNetWork
 //
 //  Created by simonssd on 2019/5/31.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NEHTTPModelManager : NSObject
+@interface AKSHTTPModelManager : NSObject
 {
     NSMutableArray *allRequests;
     BOOL enablePersistent;
@@ -41,14 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 删除所有记录 */
 - (void) deleteAllItem;
-
-- (NSMutableArray *)allMapObjects;
-
-- (void)addMapObject:(AKSHTTPSessionModel *)mapReq;
-
-- (void)removeMapObject:(AKSHTTPSessionModel *)mapReq;
-
-- (void)removeAllMapObjects;
 
 @end
 

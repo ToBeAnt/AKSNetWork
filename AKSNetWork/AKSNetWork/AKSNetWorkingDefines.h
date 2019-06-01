@@ -22,22 +22,25 @@ static inline void swizzling_exchangeMethod(Class _Nonnull clazz, SEL _Nonnull o
     } else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
-    
-    
 }
 
 typedef NS_ENUM(NSInteger,AKSApiManagerErrorType) {
-    AKSApiManagerErrorTypeRefreshToken      = -1, /** 刷新token */
-    AKSApiManagerErrorTypeLogin             = -2, /** 登录 */
-    AKSApiManagerErrorTypeCanceled          = -3, /** 取消 */
-    AKSApiManagerErrorTypeNoNetWork         = -4, /** 无网络 */
-    AKSApiManagerErrorTypeTimeOut           = -5, /** 超时 */
-    AKSApiManagerErrorTypeSuccess           = -6, /** 成功 */
-    AKSApiManagerErrorTypeCacheExpire       = -7, /** 缓存溢出 */
-    AKSApiManagerErrorTypeDateExpire        = -8, /** 数据溢出 */
-    AKSApiManagerErrorTypeAppVersionExpire  = -9, /** 版本溢出 */
-    AKSApiManagerErrorTypeInvaliData        = -10,/** 数据无效 */
+    AKSApiManagerErrorTypeRefreshToken      = -1,  /** 刷新token */
+    AKSApiManagerErrorTypeLogin             = -2,  /** 登录 */
+    AKSApiManagerErrorTypeCanceled          = -3,  /** 取消 */
+    AKSApiManagerErrorTypeNoNetWork         = -4,  /** 无网络 */
+    AKSApiManagerErrorTypeTimeOut           = -5,  /** 超时 */
+    AKSApiManagerErrorTypeSuccess           = -6,  /** 成功 */
+    AKSApiManagerErrorTypeCacheExpire       = -7,  /** 缓存溢出 */
+    AKSApiManagerErrorTypeDateExpire        = -8,  /** 数据溢出 */
+    AKSApiManagerErrorTypeAppVersionExpire  = -9,  /** 版本溢出 */
+    AKSApiManagerErrorTypeInvaliData        = -10, /** 数据无效 */
 };
 
+typedef NS_ENUM(NSInteger,AKSApiManagerNetWorkType) {
+    AKSApiManagerNetWorkTypeWiFi = 1,
+    AKSApiManagerNetWorkTypeWWAN ,
+    AKSApiManagerNetWorkTypeNoReachable,
+};
 
 #endif /* AKSNetWorkingDefines_h */

@@ -48,7 +48,8 @@
     NSDictionary *params = requestConfig.params;
     NSString *method = requestConfig.method;
     NSString *urlString = requestConfig.urlString;
-    NSMutableURLRequest *mutableRequest = [[AFJSONRequestSerializer serializer] requestWithMethod:method URLString:urlString parameters:params error:nil];
+    NSError *serializationError = nil;
+    NSMutableURLRequest *mutableRequest = [[AKSNetWorkConfig netWorkConfig].sessionManager.requestSerializer requestWithMethod:method URLString:urlString parameters:params error:&serializationError];
     mutableRequest.timeoutInterval = [AKSNetWorkConfig netWorkConfig].timeoutInterval;
     
     [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
@@ -59,14 +60,20 @@
     
     AKSHTTPSessionModel *sessionModel = [[AKSHTTPSessionModel alloc] init];
     [sessionModel startLoadingRequest:mutableRequest];
+    
     __block NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:mutableRequest uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
+        NSLog(@"%@",uploadProgress);
+        
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        NSLog(@"%@",downloadProgress);
         
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
         NSString *requestID = dataTask.currentRequest.URL.absoluteString;
         AKSNetWorkRequestModel *requestModel = [self.requestManager AKS_valueForKeyRequestID:requestID];
+        
         NSString *errorDescription = error.userInfo[@"NSLocalizedDescription"];
         [requestModel.sessionModel endLoadingResponse:response responseObject:responseObject ErrorDescription:errorDescription];
         
@@ -78,7 +85,7 @@
     [dataTask resume];
     
     NSString *requestID = dataTask.currentRequest.URL.absoluteString;
-    AKSNetWorkRequestModel *model = [[AKSNetWorkRequestModel alloc] initWithRequestID:requestID ClassName:requestConfig.className dataTask:dataTask RequestConfig:requestConfig sessionModel:sessionModel];;
+    AKSNetWorkRequestModel *model = [[AKSNetWorkRequestModel alloc] initWithRequestID:requestID ClassName:requestConfig.className dataTask:dataTask RequestConfig:requestConfig sessionModel:sessionModel];
     [self.requestManager AKS_addObjectRequestModel:model];
 }
 
