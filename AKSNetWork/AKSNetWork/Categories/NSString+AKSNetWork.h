@@ -24,11 +24,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** SHA1加密 */
 - (NSString *)AKS_SHA1Encrypt;
 
-/** AES加密 */
+/** 128位ECB AES加密 */
 - (NSString *)AKS_AES128EncryptWithKey:(NSString *)key;
 
-/** AES解密 */
+/** 256位ECB AES加密 */
+- (NSString *)AKS_AES256EncryptWithKey:(NSString *)key;
+
+/** 128位ECB AES解密 */
 - (NSString *)AKS_AES128DecryptWithKey:(NSString *)key;
+
+/** 256位ECB AES解密 */
+- (NSString *)AKS_AES256DecryptWithKey:(NSString *)key;
 
 /** DES加密 */
 - (NSString *)AKS_DESEncryptWithKey:(NSString *)key;

@@ -47,7 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readwrite, nonatomic, strong) NSMutableDictionary *mutableHTTPRequestHeaders;
 
 @property (readwrite, nonatomic, strong) AFHTTPSessionManager *sessionManager;
-@property (readwrite, nonatomic, strong) NSURLSessionConfiguration *sessionConfiguration;
 
 @end
 

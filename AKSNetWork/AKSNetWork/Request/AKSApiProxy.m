@@ -42,14 +42,15 @@
     return self;
 }
 
-- (void)callNetWorkRequestConfig:(AKSNetWorkRequestConfig *)requestConfig completion:(nonnull void (^)(NSError * _Nonnull, id _Nonnull, AKSNetWorkRequestConfig * _Nonnull))completion {
+- (NSURLRequest *)requestWithRequestConfig:(AKSNetWorkRequestConfig *)requestConfig {
     
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    AFHTTPRequestSerializer *requestSerializer = [AKSNetWorkConfig netWorkConfig].sessionManager.requestSerializer;
     NSDictionary *params = requestConfig.params;
     NSString *method = requestConfig.method;
     NSString *urlString = requestConfig.urlString;
     NSError *serializationError = nil;
-    NSMutableURLRequest *mutableRequest = [[AKSNetWorkConfig netWorkConfig].sessionManager.requestSerializer requestWithMethod:method URLString:urlString parameters:params error:&serializationError];
+    
+    NSMutableURLRequest *mutableRequest = [requestSerializer requestWithMethod:method URLString:urlString parameters:params error:&serializationError];
     mutableRequest.timeoutInterval = [AKSNetWorkConfig netWorkConfig].timeoutInterval;
     
     [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
@@ -58,17 +59,31 @@
         }
     }];
     
+    return mutableRequest;
+}
+
+- (void)callNetWorkRequestConfig:(AKSNetWorkRequestConfig *)requestConfig
+                  uploadProgress:(AKSUploadBlock)upload
+                downloadProgress:(AKSDownloadBlock)download
+                      completion:(AKSCompletionBlock)completion
+{
+    NSURLRequest *request = [self requestWithRequestConfig:requestConfig];
+    AFHTTPSessionManager *manager = [AKSNetWorkConfig netWorkConfig].sessionManager;
     AKSHTTPSessionModel *sessionModel = [[AKSHTTPSessionModel alloc] init];
-    [sessionModel startLoadingRequest:mutableRequest];
     
-    __block NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:mutableRequest uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
-        
-        NSLog(@"%@",uploadProgress);
-        
+    [sessionModel startLoadingRequest:request];
+    
+    __weak __typeof__(self) weakSelf = self;
+    __block NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+        /** 上传进度 */
+        if (upload) {
+            upload(uploadProgress);
+        }
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
-        
-        NSLog(@"%@",downloadProgress);
-        
+        /** 请求进度 */
+        if (download) {
+            download(downloadProgress);
+        }
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
         NSString *requestID = dataTask.currentRequest.URL.absoluteString;
@@ -77,9 +92,16 @@
         NSString *errorDescription = error.userInfo[@"NSLocalizedDescription"];
         [requestModel.sessionModel endLoadingResponse:response responseObject:responseObject ErrorDescription:errorDescription];
         
-        [self.requestManager AKS_removeObjectRequestID:requestID];
+        [weakSelf.requestManager AKS_removeObjectRequestID:requestID];
         if (completion) {
-            completion(error,responseObject,requestModel.requestConfig);
+            
+            NSString *ResponseString = [weakSelf resultGetResponseStringWithResponseObject:responseObject response:response error:&error];
+            NSString *ResponseObject = [weakSelf resultGetResponseStringWithResponseObject:responseObject response:response error:&error];
+            NSNumber *requestIdentifier = @([dataTask taskIdentifier]);
+            
+            AKSURLResponse *AKSResponse = [[AKSURLResponse alloc] initWithResponseString:ResponseString requestId:requestIdentifier request:request requestConfig:requestConfig responseObject:ResponseObject error:error];
+            
+            completion(AKSResponse);
         }
     }];
     [dataTask resume];
@@ -94,6 +116,31 @@
     NSMutableDictionary *mutableHTTPRequestHeaders = [AKSNetWorkConfig netWorkConfig].mutableHTTPRequestHeaders;
     
     return [NSDictionary dictionaryWithDictionary:mutableHTTPRequestHeaders];
+}
+
+- (NSString *)resultGetResponseStringWithResponseObject:(id)responseObject response:(NSURLResponse *)response error:(NSError **)error
+{
+    if (*error || !responseObject) {
+        return nil;
+    }
+    if ([responseObject isKindOfClass:[NSData class]]) {
+        return [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)resultGetResponseObjectWithResponseObject:(id)responseObject response:(NSURLResponse *)response error:(NSError **)error
+{
+    if (*error || !responseObject) {
+        return nil;
+    }
+    if ([responseObject isKindOfClass:[NSData class]]) {
+        return [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:NULL];
+    }
+    else {
+        return responseObject;
+    }
 }
 
 @end

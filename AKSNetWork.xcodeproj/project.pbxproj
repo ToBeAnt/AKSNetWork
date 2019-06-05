@@ -21,6 +21,9 @@
 		9E2E868A22A13B6600B558F1 /* AKSNetWorkLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E868922A13B6600B558F1 /* AKSNetWorkLogHelper.m */; };
 		9EA295FD22A23263006AC17E /* AKSHTTPEyeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA295FC22A23263006AC17E /* AKSHTTPEyeDetailViewController.m */; };
 		9EA2960022A2341B006AC17E /* AKSHTTPEyeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA295FF22A2341B006AC17E /* AKSHTTPEyeViewController.m */; };
+		9EE39A4D22A62EC3002A6D9E /* NSObject+AKSNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE39A4C22A62EC3002A6D9E /* NSObject+AKSNetWork.m */; };
+		9EE39A5022A62F88002A6D9E /* AKSURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE39A4F22A62F88002A6D9E /* AKSURLResponse.m */; };
+		9EE39A5722A67003002A6D9E /* AKSEncryptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE39A5622A67003002A6D9E /* AKSEncryptionManager.m */; };
 		9EECCBCA227FD84D003D6B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBC9227FD84D003D6B08 /* AppDelegate.m */; };
 		9EECCBCD227FD84D003D6B08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECCBCC227FD84D003D6B08 /* ViewController.m */; };
 		9EECCBD0227FD84D003D6B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EECCBCE227FD84D003D6B08 /* Main.storyboard */; };
@@ -66,6 +69,12 @@
 		9EA295FC22A23263006AC17E /* AKSHTTPEyeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSHTTPEyeDetailViewController.m; sourceTree = "<group>"; };
 		9EA295FE22A2341B006AC17E /* AKSHTTPEyeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSHTTPEyeViewController.h; sourceTree = "<group>"; };
 		9EA295FF22A2341B006AC17E /* AKSHTTPEyeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSHTTPEyeViewController.m; sourceTree = "<group>"; };
+		9EE39A4B22A62EC3002A6D9E /* NSObject+AKSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+AKSNetWork.h"; sourceTree = "<group>"; };
+		9EE39A4C22A62EC3002A6D9E /* NSObject+AKSNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AKSNetWork.m"; sourceTree = "<group>"; };
+		9EE39A4E22A62F88002A6D9E /* AKSURLResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSURLResponse.h; sourceTree = "<group>"; };
+		9EE39A4F22A62F88002A6D9E /* AKSURLResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSURLResponse.m; sourceTree = "<group>"; };
+		9EE39A5522A67003002A6D9E /* AKSEncryptionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSEncryptionManager.h; sourceTree = "<group>"; };
+		9EE39A5622A67003002A6D9E /* AKSEncryptionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSEncryptionManager.m; sourceTree = "<group>"; };
 		9EECCBC5227FD84D003D6B08 /* AKSNetWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSNetWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EECCBC8227FD84D003D6B08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9EECCBC9227FD84D003D6B08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +167,8 @@
 			children = (
 				9E2E867E22A12D9900B558F1 /* AKSApiProxy.h */,
 				9E2E867F22A12D9900B558F1 /* AKSApiProxy.m */,
+				9EE39A4E22A62F88002A6D9E /* AKSURLResponse.h */,
+				9EE39A4F22A62F88002A6D9E /* AKSURLResponse.m */,
 				9E2E868122A1358200B558F1 /* AKSApiRequestManager.h */,
 				9E2E868222A1358200B558F1 /* AKSApiRequestManager.m */,
 				9E2E867B22A127FB00B558F1 /* AKSHTTPSessionModel.h */,
@@ -196,6 +207,15 @@
 				9EA295FF22A2341B006AC17E /* AKSHTTPEyeViewController.m */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		9EE39A5422A66FD9002A6D9E /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				9EE39A5522A67003002A6D9E /* AKSEncryptionManager.h */,
+				9EE39A5622A67003002A6D9E /* AKSEncryptionManager.m */,
+			);
+			path = Encryption;
 			sourceTree = "<group>";
 		};
 		9EECCBBC227FD84D003D6B08 = {
@@ -237,6 +257,7 @@
 		9EECCBDE227FE1C9003D6B08 /* AKSNetWork */ = {
 			isa = PBXGroup;
 			children = (
+				9EE39A5422A66FD9002A6D9E /* Encryption */,
 				9E2E868422A137D900B558F1 /* Log */,
 				9E2E867422A11DC300B558F1 /* Cache */,
 				9E2E865F22A107AC00B558F1 /* Request */,
@@ -260,6 +281,8 @@
 				9E2E866A22A1182000B558F1 /* UINavigationController+AKSNetWork.m */,
 				9E2E866C22A1191100B558F1 /* UIViewController+AKSNetWork.h */,
 				9E2E866D22A1191100B558F1 /* UIViewController+AKSNetWork.m */,
+				9EE39A4B22A62EC3002A6D9E /* NSObject+AKSNetWork.h */,
+				9EE39A4C22A62EC3002A6D9E /* NSObject+AKSNetWork.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -434,13 +457,16 @@
 				9E2E866522A1151C00B558F1 /* AKSNetWorkRequestConfig.m in Sources */,
 				9EECCBE8227FE751003D6B08 /* NSString+AKSNetWork.m in Sources */,
 				9E2E868022A12D9900B558F1 /* AKSApiProxy.m in Sources */,
+				9EE39A5022A62F88002A6D9E /* AKSURLResponse.m in Sources */,
 				9E2E866E22A1191100B558F1 /* UIViewController+AKSNetWork.m in Sources */,
 				9EECCBD8227FD84F003D6B08 /* main.m in Sources */,
 				9E2E867A22A1275200B558F1 /* AKSURLRequestManager.m in Sources */,
 				9E2E868322A1358200B558F1 /* AKSApiRequestManager.m in Sources */,
 				9E2E866222A107E800B558F1 /* AKSNetWorkConfig.m in Sources */,
+				9EE39A4D22A62EC3002A6D9E /* NSObject+AKSNetWork.m in Sources */,
 				9E2E867D22A127FB00B558F1 /* AKSHTTPSessionModel.m in Sources */,
 				9EA2960022A2341B006AC17E /* AKSHTTPEyeViewController.m in Sources */,
+				9EE39A5722A67003002A6D9E /* AKSEncryptionManager.m in Sources */,
 				9EECCBE2227FE2FC003D6B08 /* NSArray+AKSNetWorkMethods.m in Sources */,
 				9E2E866B22A1182000B558F1 /* UINavigationController+AKSNetWork.m in Sources */,
 				9E2E867722A11DE700B558F1 /* AKSMemCacheDataCenter.m in Sources */,

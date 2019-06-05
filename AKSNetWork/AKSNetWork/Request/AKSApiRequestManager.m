@@ -66,8 +66,30 @@ static NSError * AKSErrorWithUnderlyingError(NSError *error, NSError *underlying
 }
 
 
-- (void)AKS_networkRequestConfig:(AKSNetWorkRequestConfig *)config completion:(void (^)(NSError * _Nonnull, id _Nonnull))completion {
-    
+/** 默认请求方式 */
+- (void)AKS_networkRequestConfig:(AKSNetWorkRequestConfig *)config completion:(nonnull AKSCompletionBlock)completion
+{
+    [self AKS_defaultNetworkRequestConfig:config uploadProgress:nil downloadProgress:nil completion:completion];
+}
+
+/** 带上传进度的请求方式 */
+- (void)AKS_networkRequestConfig:(AKSNetWorkRequestConfig *)config uploadProgress:(nonnull AKSUploadBlock)upload completion:(nonnull AKSCompletionBlock)completion
+{
+    [self AKS_defaultNetworkRequestConfig:config uploadProgress:upload downloadProgress:nil completion:completion];
+}
+
+/** 带下载进度的请求方式 */
+- (void)AKS_networkRequestConfig:(AKSNetWorkRequestConfig *)config downloadProgress:(nonnull AKSDownloadBlock)download completion:(nonnull AKSCompletionBlock)completion
+{
+    [self AKS_defaultNetworkRequestConfig:config uploadProgress:nil downloadProgress:download completion:completion];
+}
+
+/** 统一请求处理 */
+- (void)AKS_defaultNetworkRequestConfig:(AKSNetWorkRequestConfig *)config
+                         uploadProgress:(AKSUploadBlock)upload
+                       downloadProgress:(AKSDownloadBlock)download
+                             completion:(AKSCompletionBlock)completion
+{
     self.requestConfig = config;
     NSError *validationError = nil;
     id json = nil;
@@ -77,7 +99,8 @@ static NSError * AKSErrorWithUnderlyingError(NSError *error, NSError *underlying
                                                   NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Request failed: not network"],
                                                   } mutableCopy];
         validationError = AKSErrorWithUnderlyingError([NSError errorWithDomain:AKSRequestCacheErrorDomain code:AKSApiManagerErrorTypeNoNetWork userInfo:mutableUserInfo], validationError);
-        completion(validationError,json);
+        AKSURLResponse *AKSResponse = [[AKSURLResponse alloc] initWithResponseObject:json error:validationError];
+        completion(AKSResponse);
         return;
     }
     
@@ -87,19 +110,32 @@ static NSError * AKSErrorWithUnderlyingError(NSError *error, NSError *underlying
     }
     
     if (json) {
-        completion(validationError,json); return;
+        AKSURLResponse *AKSResponse = [[AKSURLResponse alloc] initWithResponseObject:json error:validationError];
+        completion(AKSResponse);
+        return;
     }
     
-    [[AKSApiProxy sharedInstance] callNetWorkRequestConfig:config completion:^(NSError * _Nonnull error, id  _Nonnull responseObject, AKSNetWorkRequestConfig * _Nonnull requestConfig) {
-        self.requestConfig  = requestConfig;
-        if (completion) {
-            completion(error,responseObject);
-        }
-        if (!error) {
-            [self saveCacheConfig];
-            [self saveResponseObject:responseObject];
-        }
-    }];
+    [[AKSApiProxy sharedInstance] callNetWorkRequestConfig:config
+                                            uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+                                                if (upload) {
+                                                    upload(uploadProgress);
+                                                }
+                                            }
+                                          downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+                                              if (download) {
+                                                  download(downloadProgress);
+                                              }
+                                          }
+                                                completion:^(AKSURLResponse * _Nonnull response) {
+                                                    self.requestConfig = response.requestConfig;
+                                                    if (completion) {
+                                                        completion(response);
+                                                    }
+                                                    if (response.status == AKSURLResponseStatusSuccess) {
+                                                        [self saveCacheConfig];
+                                                        [self saveResponseObject:response.content];
+                                                    }
+                                                }];
 }
 
 - (void)saveCacheConfig {
@@ -151,7 +187,7 @@ static NSError * AKSErrorWithUnderlyingError(NSError *error, NSError *underlying
 
 - (void)saveResponseObject:(id)object {
     
-    /** 判断缓冲时间和是否忽略缓冲 */
+    /** 判断缓存时间和是否忽略缓存 */
     if ([_netWorkConfig.cacheTimeInSeconds integerValue] <= 0 || self.requestConfig.shouldAllIgnoreCache) {
         return;
     }

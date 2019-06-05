@@ -56,9 +56,9 @@
         /** 数据库日志默认打开 */
         _SQLLogEnable = YES;
         
-        _sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         
-        _sessionManager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:self.sessionConfiguration];
+        _sessionManager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
         
         _sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         

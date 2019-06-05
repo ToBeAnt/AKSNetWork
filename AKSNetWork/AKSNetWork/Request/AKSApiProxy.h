@@ -7,16 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKSURLResponse.h"
 
 @class AKSNetWorkRequestConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^AKSUploadBlock)(NSProgress * _Nonnull uploadProgress);
+typedef void(^AKSDownloadBlock)(NSProgress * _Nonnull downloadProgress);
+typedef void(^AKSCompletionBlock)(AKSURLResponse *response);
+
 @interface AKSApiProxy : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)callNetWorkRequestConfig:(AKSNetWorkRequestConfig *)requestConfig completion:(void(^)(NSError *error, id responseObject,AKSNetWorkRequestConfig *requestModel))completion;
+- (void)callNetWorkRequestConfig:(AKSNetWorkRequestConfig *)requestConfig
+                  uploadProgress:(AKSUploadBlock)upload
+                downloadProgress:(AKSDownloadBlock)download
+                      completion:(AKSCompletionBlock)completion;
 
 @end
 

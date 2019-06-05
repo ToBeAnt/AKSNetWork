@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 请求的控制器名字 */
 @property (nonatomic, copy) NSString *className;
 
-/** 是否忽视缓存 */
+/** 是否忽视缓存（默认为NO，不缓存） */
 @property (nonatomic, assign) BOOL shouldAllIgnoreCache;
 
 @end
